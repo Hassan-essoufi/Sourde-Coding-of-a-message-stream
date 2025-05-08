@@ -10,13 +10,10 @@ probabilities = {
     'd': 0.1
 }
 
-# Build the Huffman tree
 tree = build_huffman_tree(probabilities)
 print(tree)
-# Generate the Huffman codes
 huffman_codes = generate_codes(tree)
 
-# Display the Huffman codes
 for char, code in huffman_codes.items():
     print(f"{char}: {code}")
 
