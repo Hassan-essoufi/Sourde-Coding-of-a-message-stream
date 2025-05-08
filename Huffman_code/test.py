@@ -34,7 +34,6 @@ huffman_codes = {char:code for char, code in huffman_codes.items()
 
 }
 
-# Example encoded string with noise added (e.g., '0111010110' with some bit errors)
 encoded_str = '0111011110'  # This is a noisy version of 'dcb'
 
 # Decode the encoded string with noise
