@@ -1,7 +1,7 @@
 import heapq
 import matplotlib.pyplot as plt
 
-def build_huffman_tree(probabilities):
+def huffman_tree_b(probabilities):
     # Create a heap from the probabilities
     heap = [[prob] for prob in probabilities]
     heapq.heapify(heap)
@@ -25,7 +25,6 @@ def draw_tree(tree):
             x = y_offset[0]
             y_offset[0] += 3
         else:
-            # Sort the children: smaller one goes down (y increases), larger one goes up (y decreases)
             child1, child2 = sorted([node[1], node[2]], key=lambda x: x[0])
             assign_positions(child2, depth + 1)  # larger (higher)
             assign_positions(child1, depth + 1)  # smaller (lower)
@@ -62,10 +61,6 @@ def draw_tree(tree):
     ax.set_xlim(-1, y_offset[0])
     ax.set_ylim(min(y for x, y in positions.values()) - 1, 1)
     ax.axis('off')
-    plt.tight_layout()
+    plt.title("huffman coding tree")
     plt.show()
 
-# Example
-probabilities = [0.4, 0.3, 0.2, 0.1]
-tree = build_huffman_tree(probabilities)
-draw_tree(tree)
