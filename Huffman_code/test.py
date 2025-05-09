@@ -1,14 +1,18 @@
 
-from huffman_encoder import build_huffman_tree, generate_codes, metrics
+from huffman_encoder import build_huffman_tree, generate_codes,huff_encoder ,metrics
 from huffman_decoder import decode_huffman_with_noise
-from huffman_tree import draw_tree,huffman_tree_b
+from huffman_tree import huffman_tree_b, draw_tree
+
 # Example: 
 probabilities = {
     'a': 0.4,
     'b': 0.3,
-    'c': 0.2,
-    'd': 0.1
+    'c': 0.15,
+    'd': 0.1,
+    'e':0.05
 }
+
+text = "dbc"
 
 tree = build_huffman_tree(probabilities)
 print(tree)
@@ -24,6 +28,8 @@ print(f"  Average Codeword Length: {avg}")
 print(f"  Entropy: {H}")
 print(f"  Efficiency : {eff}")
 print(f"  Redundancy : {red}")
+
+print(huff_encoder(text,probabilities))
 
 probabilities_only = [value for value in probabilities.values()]
 tree = huffman_tree_b(probabilities_only)
