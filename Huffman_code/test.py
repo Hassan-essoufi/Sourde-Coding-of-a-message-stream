@@ -1,7 +1,6 @@
 
 from huffman_encoder import build_huffman_tree, generate_codes,huff_encoder ,metrics
-from huffman_decoder import decode_huffman_with_noise
-from huffman_tree import huffman_tree_b, draw_tree
+from huffman_decoder import decode_huffman_with_noise, efficiency, hamming_distance
 
 # Example: 
 probabilities = {
@@ -31,19 +30,14 @@ print(f"  Redundancy : {red}")
 
 print(huff_encoder(text,probabilities))
 
-probabilities_only = [value for value in probabilities.values()]
-tree = huffman_tree_b(probabilities_only)
-draw_tree(tree)
-
-
-huffman_codes = {char:code for char, code in huffman_codes.items()
-
-}
+huffman_codes = {char:code for char, code in huffman_codes.items()}
 
 encoded_str = '0111011110'  # This is a noisy version of 'dcb'
 
-# Decode the encoded string with noise
 decoded_str = decode_huffman_with_noise(encoded_str, huffman_codes, noise_prob=0.1)
+efficiency_of_code = efficiency(text, decoded_str)
+hamming_dist =hamming_distance(text, decoded_str)
 
-# Display the decoded string
-print("Decoded string with noise:", decoded_str)
+print(f"Decoded string with noise:{decoded_str}")
+print(f"efficiency: {efficiency_of_code}\n Hamming distance: {hamming_dist}")
+
