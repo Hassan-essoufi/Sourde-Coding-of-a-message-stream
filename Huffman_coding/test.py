@@ -25,8 +25,8 @@ avg, H, eff, red = metrics(probabilities, huffman_codes)
 print("\nMetrics:")
 print(f"  Average Codeword Length: {avg}")
 print(f"  Entropy: {H}")
-print(f"  Efficiency : {eff}")
-print(f"  Redundancy : {red}")
+print(f"  Efficiency : {eff:.4f}")
+print(f"  Redundancy : {red:.4f}")
 
 print(huff_encoder(text,probabilities))
 

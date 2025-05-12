@@ -33,8 +33,6 @@ def huff_encoder(text,probabilities):
         encoded_text += huffman_codes[char] 
     return encoded_text
 
-
-
 def metrics(probabilities, codes):
     avg_length = sum(probabilities[char] * len(code) for char, code in codes.items())
     
