@@ -22,4 +22,4 @@ def hamming_distance(str1, str2):
 
 def efficiency(original, decoded):
     correct = sum(el1 == el2 for el1, el2 in zip(original, decoded))
-    return (correct / len(original))*100
+    return f"({(correct / len(original))*100}%"
