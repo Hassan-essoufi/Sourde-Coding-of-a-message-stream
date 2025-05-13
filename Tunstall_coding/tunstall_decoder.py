@@ -1,8 +1,4 @@
 import numpy as np
-
-def hamming_distance(a, b):
-    return sum(x != y for x, y in zip(a, b))
-
 def add_gaussian_noise(encoded, sigma=0.5):
     signal = np.array([1 if bit == '1' else -1 for bit in encoded])
     noise = np.random.normal(0, sigma, len(signal))
@@ -41,6 +37,9 @@ def compute_accuracy(original, decoded):
     min_len = min(len(original), len(decoded))
     correct = sum(1 for i in range(min_len) if original[i] == decoded[i])
     return correct / len(original)
+def hamming_distance(a, b):
+    return sum(x != y for x, y in zip(a, b))
+
 
 
 

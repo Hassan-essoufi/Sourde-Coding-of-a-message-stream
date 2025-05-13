@@ -1,3 +1,4 @@
+import math
 def binary_fix(i, n):
     return bin(i)[2:].zfill(n)
 
