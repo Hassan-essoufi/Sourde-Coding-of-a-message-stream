@@ -1,7 +1,5 @@
-from tustall_encoder import build_tunstall_tree, assign_codes, print_dictionary, encode_string
-from tunstall_decoder import decode_binary, add_gaussian_noise
-import math
-
+from tustall_encoder import build_tunstall_tree, assign_codes, print_dictionary, encode_string, compute_entropy, compute_avg_length
+from tunstall_decoder import decode_binary, add_gaussian_noise, compute_accuracy
 #example
 n = 4
 string = "aaabbbbbbbdddddddccccccccccccaaaddddddddabbbcc"

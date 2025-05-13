@@ -54,3 +54,11 @@ def print_dictionary(leaves):
     print("-------------------------")
     for node in leaves:
         print(f"{node['seq']}\t\t{node['code']}")
+def compute_entropy(probs):
+    return -sum(p * math.log2(p) for p in probs if p > 0)
+
+def compute_avg_length(leaves):
+    total = 0
+    for node in leaves:
+        total += len(node["seq"]) * node["prob"]
+    return total
