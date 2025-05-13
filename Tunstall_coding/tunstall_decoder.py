@@ -37,3 +37,10 @@ def decode_binary(encoded, leaves):
                 decoded += "?" 
             i += n  
     return decoded
+def compute_accuracy(original, decoded):
+    min_len = min(len(original), len(decoded))
+    correct = sum(1 for i in range(min_len) if original[i] == decoded[i])
+    return correct / len(original)
+
+
+
