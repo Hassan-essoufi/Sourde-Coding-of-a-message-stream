@@ -32,20 +32,6 @@ print("Encoded string (noisy):", noisy_encoded)
 decoded = decode_binary(noisy_encoded, leaves)
 print("Decoded string:", decoded)
 
-def compute_entropy(probs):
-    return -sum(p * math.log2(p) for p in probs if p > 0)
-
-def compute_avg_length(leaves):
-    total = 0
-    for node in leaves:
-        total += len(node["seq"]) * node["prob"]
-    return total
-
-def compute_accuracy(original, decoded):
-    min_len = min(len(original), len(decoded))
-    correct = sum(1 for i in range(min_len) if original[i] == decoded[i])
-    return correct / len(original)
-
 # tunstall code metrics
 entropy = compute_entropy(probs)
 avg_length = compute_avg_length(leaves)
