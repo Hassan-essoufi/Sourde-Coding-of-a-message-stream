@@ -1,4 +1,12 @@
 import math
+def probabilities_freq(string):
+    freq = {}
+    for ch in string:
+        freq[ch] = freq.get(ch, 0) + 1
+    alphabet = list(freq.keys())
+    probabilities = {ch:freq[ch] / len(string) for ch in alphabet}
+    return probabilities
+
 def build_huffman_tree(probabilities):
     nodes = [(char, prob) for char, prob in probabilities.items()]
     while len(nodes) > 1:
