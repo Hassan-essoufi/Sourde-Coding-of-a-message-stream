@@ -11,7 +11,7 @@ probabilities = {
     'e':0.05
 }
 
-text = "dbc"
+text = "dbccbbbddddcccddddbbb"
 
 tree = build_huffman_tree(probabilities)
 print(tree)
@@ -32,12 +32,12 @@ print(huff_encoder(text,probabilities))
 
 huffman_codes = {char:code for char, code in huffman_codes.items()}
 
-encoded_str = '0111011110'  # This is a noisy version of 'dcb'
+encoded_str = str(huff_encoder(text,probabilities))
 
-decoded_str = decode_huffman_with_noise(encoded_str, huffman_codes, noise_prob=0.1)
+decoded_str = decode_huffman_with_noise(encoded_str, huffman_codes,sigma=0.5)
 efficiency_of_code = efficiency(text, decoded_str)
 hamming_dist =hamming_distance(text, decoded_str)
 
 print(f"Decoded string with noise:{decoded_str}")
-print(f"efficiency: {efficiency_of_code}\n Hamming distance: {hamming_dist}")
+print(f"efficiency: {efficiency_of_code} \n Hamming distance: {hamming_dist}")
 
